@@ -63,7 +63,8 @@ function move() {
   if (i >= busStops.length) return;
   // if (i > 0) map.removeOverlay(busStopMarkers[i-1]);
   let point = new BMapGL.Point(busStops[i].lng, busStops[i].lat);
-  let marker = new BMapGL.Marker(point);
+  let myIcon = new BMapGL.Icon("./bus2.png", new BMapGL.Size(50, 25));
+  let marker = new BMapGL.Marker(point, { icon: myIcon });
   busStopMarkers.push(marker);
   map.addOverlay(marker);
   addText(busStops[i].name, busStopStyle, point, [-30, -60]);
