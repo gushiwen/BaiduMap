@@ -16,8 +16,8 @@ const busStops = [
 ];
 
 // Initiate map
-var map = new BMapGL.Map("map");
-var point = new BMapGL.Point(121.481891, 31.232801);
+let map = new BMapGL.Map("map");
+let point = new BMapGL.Point(121.481891, 31.232801);
 map.centerAndZoom(point, 16);
 map.enableScrollWheelZoom(true);
 // map.setHeading(80);
@@ -32,7 +32,7 @@ map.addControl(new BMapGL.MapTypeControl());
 
 // add text at specified position
 function addText(text, textStyle, position, offSet) {
-  var label = new BMapGL.Label(text, {
+  let label = new BMapGL.Label(text, {
     position: position,
     offset: new BMapGL.Size(offSet[0], offSet[1]),
   });
@@ -63,7 +63,7 @@ function move() {
   if (i >= busStops.length) return;
   // if (i > 0) map.removeOverlay(busStopMarkers[i-1]);
   let point = new BMapGL.Point(busStops[i].lng, busStops[i].lat);
-  let myIcon = new BMapGL.Icon("./bus2.png", new BMapGL.Size(50, 25));
+  let myIcon = new BMapGL.Icon("./images/bus1.png", new BMapGL.Size(50, 25));
   let marker = new BMapGL.Marker(point, { icon: myIcon });
   busStopMarkers.push(marker);
   map.addOverlay(marker);
